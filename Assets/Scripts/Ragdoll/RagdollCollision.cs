@@ -1,0 +1,25 @@
+﻿using UnityEngine;
+
+public class RagdollCollision {
+
+    private GameObject sender;
+
+    private Collision collision;
+
+    private float impactForce;
+
+    public GameObject Sender { get { return sender; } }/// Gameobjet receiver of collision info
+    public Collision Collision { get { return collision; } }/// Collision info 
+    public float ImpactForce { get { return impactForce; } }/// Magnitude of relative linear velocity of the two colliding objects
+
+    /// <summary>
+    /// Create a New collision info seu trouxa
+    /// </summary>
+    /// <param name="sender">current gameobjet</param>
+    /// <param name="collision">current collision info</param>
+    public RagdollCollision(GameObject sender, Collision collision) {
+        this.sender = sender;
+        this.collision = collision;
+        this.impactForce = collision.relativeVelocity.magnitude;
+    }
+}
